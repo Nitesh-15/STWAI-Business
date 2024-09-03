@@ -1,0 +1,73 @@
+{% extends "index.html" %}
+
+{% block content %}
+    <h2>All Business Details</h2>
+    <div class="table-container">
+        <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Business Name</th>
+                <th>Business Type</th>
+                <th>Industry</th>
+                <th>Mission Statement</th>
+                <th>Vision Statement</th>
+                <th>Founded</th>
+                <th>Founders</th>
+                <th>Location</th>
+                <th>Number of Employees</th>
+                <th>Business Stage</th>
+                <th>Business Model</th>
+                <th>Turnover Year 1</th>
+                <th>Turnover Year 2</th>
+                <th>Turnover Year 3</th>
+                <th>Turnover Year 4</th>
+                <th>Gross Profit (%)</th>
+                <th>Net Profit (%)</th>
+                <th>Monthly Inflow</th>
+                <th>Monthly Outflow</th>
+                <th>Monthly Cashflow</th>
+                <th>Fixed Expense 1</th>
+                <th>Fixed Expense 2</th>
+                <th>Fixed Expense 3</th>
+                <th>Fixed Expense 4</th>
+                <th>Variable Expenses</th>
+                <th>Cash Flow Projection</th>
+                <th>Overdraft Limit</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for business in business_details %}
+            <tr>
+                <td>{{ business.business_name }}</td>
+                <td>{{ business.business_type }}</td>
+                <td>{{ business.industry }}</td>
+                <td>{{ business.mission_statement }}</td>
+                <td>{{ business.vision_statement }}</td>
+                <td>{{ business.founded }}</td>
+                <td>{{ business.founders }}</td>
+                <td>{{ business.location }}</td>
+                <td>{{ business.number_of_employees }}</td>
+                <td>{{ business.business_stage }}</td>
+                <td>{{ business.business_model }}</td>
+                <td>{{ business.turnover_year1 }}</td>
+                <td>{{ business.turnover_year2 }}</td>
+                <td>{{ business.turnover_year3 }}</td>
+                <td>{{ business.turnover_year4 }}</td>
+                <td>{{ business.gross_profit }}</td>
+                <td>{{ business.net_profit }}</td>
+                <td>{{ business.monthly_inflow }}</td>
+                <td>{{ business.monthly_outflow }}</td>
+                <td>{{ business.monthly_cashflow }}</td>
+                <td>{{ business.fixed_expense1 }}</td>
+                <td>{{ business.fixed_expense2 }}</td>
+                <td>{{ business.fixed_expense3 }}</td>
+                <td>{{ business.fixed_expense4 }}</td>
+                <td>{{ business.variable_expenses }}</td>
+                <td>{{ business.cash_flow_projection }}</td>
+                <td>{{ business.overdraft_limit }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

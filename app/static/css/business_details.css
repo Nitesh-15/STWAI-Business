@@ -1,0 +1,171 @@
+/* General Container Styling */
+.form-container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Tab styles */
+.tab {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab button {
+    background-color: inherit;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 20px;
+    transition: background-color 0.3s, color 0.3s;
+    font-size: 17px;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: #333;
+}
+
+.tab button i {
+    margin-right: 8px;
+}
+
+.tab button:hover {
+    background-color: #f1f1f1;
+    color: #007bff;
+}
+
+.tab button.active {
+    background-color: #007bff;
+    color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+/* Tab content styles */
+.tabcontent {
+    display: none;
+    padding: 20px 0;
+}
+
+.tabcontent.active {
+    display: block;
+}
+
+/* Business Details Form Styling */
+h2 {
+    text-align: center;
+    color: #007bff;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.section-title {
+    color: #007bff;
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 3px solid #007bff;
+}
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    flex: 1;
+    min-width: 250px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+   
+}
+
+.form-group:last-child {
+    margin-right: 0;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group .form-control {
+    width: 95%;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+.form-group .form-control:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.btn-submit {
+    background-color: #5ac25e;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.btn-submit:hover {
+    background-color: #367838;
+}
+
+.form-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+}
+.form-navigation .prev-tab {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+.form-navigation .next-tab {
+    background-color: #007bff;
+    color: #fff;
+    position: absolute;
+    padding-bottom: 10px;
+    right: 60px;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+}
+
+
+
+.form-navigation .next-tab:hover,
+.form-navigation .prev-tab:hover {
+    background-color: #0056b3;
+}
+
