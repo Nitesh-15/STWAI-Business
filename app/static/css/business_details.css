@@ -39,11 +39,11 @@
 
 .tab button:hover {
     background-color: #f1f1f1;
-    color: #007bff;
+    color: #152f4b;
 }
 
 .tab button.active {
-    background-color: #007bff;
+    background-color: #152f4b;
     color: white;
     border-radius: 10px 10px 0 0;
 }
@@ -61,14 +61,14 @@
 /* Business Details Form Styling */
 h2 {
     text-align: center;
-    color: #007bff;
+    color: #152f4b;
     margin-bottom: 40px;
     font-size: 2.5rem;
     font-weight: bold;
 }
 
 .section-title {
-    color: #007bff;
+    color: #152f4b;
     font-size: 1.8rem;
     margin-bottom: 30px;
     text-align: center;
@@ -80,7 +80,7 @@ h2 {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    margin-bottom: 30px;
+    margin-bottom: 0px;
 }
 
 .form-group {
@@ -88,7 +88,6 @@ h2 {
     min-width: 250px;
     margin-right: 50px;
     margin-bottom: 20px;
-   
 }
 
 .form-group:last-child {
@@ -126,34 +125,129 @@ h2 {
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 1rem;
+    margin-top: 38px;
 }
 
 .btn-submit:hover {
     background-color: #367838;
 }
 
+/* Navigation buttons */
 .form-navigation {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* Align to the right */
     margin-top: 35px;
+    align-items: center; /* Ensure consistent button height */
+    gap: 10px; /* Add space between the buttons */
 }
+
+/* Make the "Previous" button stick to the left */
 .form-navigation .prev-tab {
+    margin-right: auto; /* Push the "Previous" button to the left */
     background-color: #007bff;
     color: #fff;
     border: none;
-    padding: 10px 20px;
+    padding: 10px 30px; /* Adjust padding for uniform button size */
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.3s;
     font-size: 1rem;
+    min-height: 44px; /* Set minimum height to ensure consistent button height */
 }
 
+/* Center the Next button */
 .form-navigation .next-tab {
     background-color: #007bff;
     color: #fff;
-    position: absolute;
-    padding-bottom: 10px;
-    right: 60px;
+    border: none;
+    padding: 10px 30px; /* Adjust padding for uniform button size */
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-size: 1rem;
+    min-height: 44px; /* Set minimum height to ensure consistent button height */
+}
+
+/* Hover effects for the buttons */
+.form-navigation .next-tab:hover,
+.form-navigation .prev-tab:hover {
+    background-color: #0056b3;
+}
+
+/*  Financial-year-entry */
+.financial-year-entry {
+    padding-top: 15px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.remove_financial_year {
+    background-color: #ff4d4d;
+    color: white;
+ 
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    margin-top: 30;
+}
+
+.remove_financial_year:hover {
+    background-color: #cc0000;
+}
+
+
+/* Monthly-expense-entry */
+.monthly-expense-entry {
+    padding-top: 15px;
+    margin-top: 10px;
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+/* Remove button for monthly expenses */
+.remove_monthly_expense {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+    margin-top: 30;
+}
+
+.remove_monthly_expense:hover {
+    background-color: #cc0000;
+}
+
+/* Monthly Expense form group styling */
+.monthly-expense-form-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.monthly-expense-form-group .form-group {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.monthly-expense-form-group .form-group:last-child {
+    margin-right: 0;
+}
+
+/* Button styles */
+#add_monthly_expense {
+    background-color: #5ac25e;
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 8px;
@@ -162,10 +256,7 @@ h2 {
     font-size: 1rem;
 }
 
-
-
-.form-navigation .next-tab:hover,
-.form-navigation .prev-tab:hover {
-    background-color: #0056b3;
+#add_monthly_expense:hover {
+    background-color: #367838;
 }
 

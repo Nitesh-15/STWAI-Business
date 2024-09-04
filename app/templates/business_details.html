@@ -1,166 +1,140 @@
 {% extends "index.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/business_details.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/business_details.css') }}">
 {% endblock %}
 
 {% block content %}
-    <h2>Enter Business Details</h2>
+<h2>Business Details</h2>
 
-    <!-- Tab Navigation -->
-    <div class="tab">
-        <button class="tablinks active" data-tab="tab1">Basic Information</button>
-        <button class="tablinks" data-tab="tab2">Company Background</button>
-        <button class="tablinks" data-tab="tab3">Financial Information</button>
-        <button class="tablinks" data-tab="tab4">Profit and Cash Flow</button>
-        <button class="tablinks" data-tab="tab5">Expenses and Submission</button>
+<!-- Tab Navigation -->
+<div class="tab">
+    <button class="tablinks active" data-tab="tab1">Basic Information</button>
+    <button class="tablinks" data-tab="tab2">Company Background</button>
+    <button class="tablinks" data-tab="tab3">Financial Information</button>
+    <button class="tablinks" data-tab="tab4">Cash Flow</button>
+    <button class="tablinks" data-tab="tab5">Expenses and Submission</button>
+</div>
+
+<form method="POST" action="{{ url_for('business_details') }}">
+    {{ form.hidden_tag() }}
+
+    <!-- Tab 1 -->
+    <div class="tabcontent active" id="tab1">
+        <div class="form-row">
+            <div class="form-group">
+                {{ form.business_name.label }}
+                {{ form.business_name(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.business_type.label }}
+                {{ form.business_type(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.industry.label }}
+                {{ form.industry(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.location.label }}
+                {{ form.location(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.number_of_employees.label }}
+                {{ form.number_of_employees(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.business_stage.label }}
+                {{ form.business_stage(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.business_model.label }}
+                {{ form.business_model(class="form-control") }}
+            </div>
+
+        </div>
+        <div class="form-navigation">
+
+
+            <button type="button" class="next-tab" data-next="tab2">Next &rarr;</button>
+        </div>
     </div>
 
-    <form method="POST" action="{{ url_for('business_details') }}">
-        {{ form.hidden_tag() }}
-
-        <!-- Tab 1 -->
-        <div class="tabcontent active" id="tab1">
-            <div class="form-row">
-                <div class="form-group">
-                    {{ form.business_name.label }}
-                    {{ form.business_name(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.business_type.label }}
-                    {{ form.business_type(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.industry.label }}
-                    {{ form.industry(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.mission_statement.label }}
-                    {{ form.mission_statement(class="form-control", rows="3") }}
-                </div>
-                <div class="form-group">
-                    {{ form.vision_statement.label }}
-                    {{ form.vision_statement(class="form-control", rows="3") }}
-                </div>
+    <!-- Tab 2 -->
+    <div class="tabcontent" id="tab2">
+        <div class="form-row">
+            <div class="form-group">
+                {{ form.founded.label }}
+                {{ form.founded(class="form-control") }}
             </div>
-            <div class="form-navigation">
-                <button type="button" class="next-tab" data-next="tab2">Next &rarr;</button>
+            <div class="form-group">
+                {{ form.founders.label }}
+                {{ form.founders(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.mission_statement.label }}
+                {{ form.mission_statement(class="form-control", rows="3") }}
+            </div>
+            <div class="form-group">
+                {{ form.vision_statement.label }}
+                {{ form.vision_statement(class="form-control", rows="3") }}
+            </div>
+        </div>
+        <div class="form-navigation">
+            <button type="button" class="prev-tab" data-prev="tab1">&larr; Previous</button>
+            <button type="button" class="next-tab" data-next="tab3">Next &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Tab 3 -->
+    <div class="tabcontent" id="tab3">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="financial_year">Select Financial Year</label>
+                <select id="financial_year" class="form-control">
+
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="turnover_input">Enter Turnover</label>
+                <input type="text" id="turnover_input" class="form-control" placeholder="Enter turnover">
+            </div>
+            <div class="form-group">
+                <button type="button" id="add_financial_year" class="btn-submit">+</button>
             </div>
         </div>
 
-        <!-- Tab 2 -->
-        <div class="tabcontent" id="tab2">
-            <div class="form-row">
-                <div class="form-group">
-                    {{ form.founded.label }}
-                    {{ form.founded(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.founders.label }}
-                    {{ form.founders(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.location.label }}
-                    {{ form.location(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.number_of_employees.label }}
-                    {{ form.number_of_employees(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.business_stage.label }}
-                    {{ form.business_stage(class="form-control") }}
-                </div>
-            </div>
-            <div class="form-navigation">
-                <button type="button" class="prev-tab" data-prev="tab1">&larr; Previous</button>
-                <button type="button" class="next-tab" data-next="tab3">Next &rarr;</button>
-            </div>
-        </div>
+        <!-- Placeholder for dynamically added financial year entries -->
+        <div id="financial_year_list"></div>
 
-        <!-- Tab 3 -->
-        <div class="tabcontent" id="tab3">
-            <div class="form-row">
-                <div class="form-group">
-                    {{ form.business_model.label }}
-                    {{ form.business_model(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.turnover_year1.label }}
-                    {{ form.turnover_year1(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.turnover_year2.label }}
-                    {{ form.turnover_year2(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.turnover_year3.label }}
-                    {{ form.turnover_year3(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.turnover_year4.label }}
-                    {{ form.turnover_year4(class="form-control") }}
-                </div>
-            </div>
-            <div class="form-navigation">
-                <button type="button" class="prev-tab" data-prev="tab2">&larr; Previous</button>
-                <button type="button" class="next-tab" data-next="tab4">Next &rarr;</button>
-            </div>
+        <div class="form-navigation">
+            <button type="button" class="prev-tab" data-prev="tab2">&larr; Previous</button>
+            <button type="button" class="next-tab" data-next="tab4">Next &rarr;</button>
         </div>
+    </div>
 
-        <!-- Tab 4 -->
-        <div class="tabcontent" id="tab4">
-            <div class="form-row">
-                <div class="form-group">
-                    {{ form.gross_profit.label }}
-                    {{ form.gross_profit(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.net_profit.label }}
-                    {{ form.net_profit(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.monthly_inflow.label }}
-                    {{ form.monthly_inflow(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.monthly_outflow.label }}
-                    {{ form.monthly_outflow(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.monthly_cashflow.label }}
-                    {{ form.monthly_cashflow(class="form-control") }}
-                </div>
-            </div>
-            <div class="form-navigation">
-                <button type="button" class="prev-tab" data-prev="tab3">&larr; Previous</button>
-                <button type="button" class="next-tab" data-next="tab5">Next &rarr;</button>
-            </div>
-        </div>
 
-        <!-- Tab 5 -->
-        <div class="tabcontent" id="tab5">
-            <div class="form-row">
-                <div class="form-group">
-                    {{ form.fixed_expense1.label }}
-                    {{ form.fixed_expense1(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.fixed_expense2.label }}
-                    {{ form.fixed_expense2(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.fixed_expense3.label }}
-                    {{ form.fixed_expense3(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.fixed_expense4.label }}
-                    {{ form.fixed_expense4(class="form-control") }}
-                </div>
-                <div class="form-group">
-                    {{ form.variable_expenses.label }}
-                    {{ form.variable_expenses(class="form-control") }}
-                </div>
+    <!-- Tab 4 -->
+    <div class="tabcontent" id="tab4">
+        <div class="form-row">
+            <div class="form-group">
+                {{ form.gross_profit.label }}
+                {{ form.gross_profit(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.net_profit.label }}
+                {{ form.net_profit(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.monthly_inflow.label }}
+                {{ form.monthly_inflow(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.monthly_outflow.label }}
+                {{ form.monthly_outflow(class="form-control") }}
+            </div>
+            <div class="form-group">
+                {{ form.monthly_cashflow.label }}
+                {{ form.monthly_cashflow(class="form-control") }}
             </div>
             <div class="form-row">
                 <div class="form-group">
@@ -171,14 +145,52 @@
                     {{ form.overdraft_limit.label }}
                     {{ form.overdraft_limit(class="form-control") }}
                 </div>
-            </div>
-            <div class="form-navigation">
-                <button type="button" class="prev-tab" data-prev="tab4">&larr; Previous</button>
-                <button type="submit" class="btn-submit">Submit</button>
+                <div class="form-group">
+                    {{ form.overdraft_amount.label }}
+                    {{ form.overdraft_amount(class="form-control") }}
+                </div>
             </div>
         </div>
-    </form>
+        <div class="form-navigation">
+            <button type="button" class="prev-tab" data-prev="tab3">&larr; Previous</button>
+            <button type="button" class="next-tab" data-next="tab5">Next &rarr;</button>
+        </div>
+    </div>
+
+    <!-- Tab 5 -->
+    <div class="tabcontent" id="tab5">
+        <div class="form-row">
+            <div class="form-group">
+                <label for="month_input">Enter Expense</label>
+                <input type="text" id="month_input" class="form-control" placeholder="Enter Expense">
+            </div>
+            <div class="form-group">
+                <label for="expense_input">Enter Amount</label>
+                <input type="text" id="expense_input" class="form-control" placeholder="Enter expense">
+            </div>
+            <div class="form-group">
+                <button type="button" id="add_monthly_expense" class="btn-submit">+</button>
+            </div>
+    
+            <div class="form-group">
+                {{ form.variable_expenses.label }}
+                {{ form.variable_expenses(class="form-control") }}
+            </div>
+        </div>
+    
+        <!-- Placeholder for dynamically added monthly expense entries -->
+        <div id="monthly_expense_list"></div>
+    
+        <div class="form-navigation">
+            <button type="button" class="prev-tab" data-prev="tab4">&larr; Previous</button>
+            <button type="submit" class="btn-submit">Submit</button>
+        </div>
+    </div>
+    
+</form>
 {% endblock %}
+
+
 
 {% block scripts %}
 <script src="{{ url_for('static', filename='js/business_details.js') }}"></script>

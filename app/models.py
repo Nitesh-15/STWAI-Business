@@ -29,6 +29,9 @@ class BusinessDetails(db.Model):
     variable_expenses = db.Column(db.Float, nullable=False)
     cash_flow_projection = db.Column(db.Float, nullable=False)
     overdraft_limit = db.Column(db.Float, nullable=False)
+    overdraft_amount = db.Column(db.Float, nullable=False)
+
+    
 
     def __repr__(self):
         return f'<BusinessDetails {self.business_name}>'

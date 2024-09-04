@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, TextAreaField, IntegerField, FloatField, SubmitField
-from wtforms.validators import DataRequired
+from wtforms import StringField, TextAreaField, IntegerField, FloatField, SubmitField,PasswordField
+from wtforms.validators import DataRequired,Length,Email,EqualTo
 
 class BusinessDetailsForm(FlaskForm):
     business_name = StringField('Business Name', validators=[DataRequired()])
@@ -30,7 +30,20 @@ class BusinessDetailsForm(FlaskForm):
     variable_expenses = FloatField('Variable Expenses', validators=[DataRequired()])
     cash_flow_projection = FloatField('Cash Flow Projection', validators=[DataRequired()])
     overdraft_limit = FloatField('Overdraft Account Limit', validators=[DataRequired()])
+    overdraft_amount = FloatField('Overdraft Amount', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 # class loginForm(FlaskForm) :
 # 
+
+class LoginForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    submit = SubmitField('Login')
+
+class RegisterForm(FlaskForm):
+    username = StringField('Username', validators=[DataRequired(), Length(min=4, max=25)])
+    email = StringField('Email', validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=6)])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password', message="Passwords must match")])
+    submit = SubmitField('Register')
